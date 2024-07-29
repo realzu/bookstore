@@ -1,2 +1,2 @@
 # bookstore
-현주의 서점 📚
+realzu의 서점 📚
