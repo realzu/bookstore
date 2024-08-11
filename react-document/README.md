@@ -7,8 +7,8 @@
 - [x] Writing Markup with JSX
 - [x] Passing Props to a Component
 - [x] Conditional Rendering
-- [x] Rendering Lists 
-- [ ] Keeping Components Pure 
+- [x] Rendering Lists
+- [x] Keeping Components Pure
 - [ ] Your UI as a Tree
 
 ## Adding Interactivity
@@ -18,7 +18,7 @@
 - [ ] Render and Commit
 - [ ] State as a Snapshot
 - [ ] Queueing a Series of State Updates
-- [ ] Updating Objects in State 
+- [ ] Updating Objects in State
 - [ ] Updating Arrays in State
 
 ## Managing State
@@ -33,7 +33,7 @@
 
 ## Escape Hatches
 
-- [ ] Referencing Values with Refs 
+- [ ] Referencing Values with Refs
 - [ ] Manipulating the DOM with Refs
 - [ ] Synchronizing with Effects
 - [ ] You Might Not Need an Effect
@@ -41,4 +41,3 @@
 - [ ] Separating Events from Effects
 - [ ] Removing Effect Dependencies
 - [ ] Reusing Logic with Custom Hooks
-
