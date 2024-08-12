@@ -9,7 +9,7 @@
 - [x] Conditional Rendering
 - [x] Rendering Lists
 - [x] Keeping Components Pure
-- [ ] Your UI as a Tree
+- [x] Your UI as a Tree
 
 ## Adding Interactivity
 

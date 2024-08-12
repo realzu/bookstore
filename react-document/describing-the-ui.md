@@ -56,3 +56,14 @@ Rendering can happen "at any time", -> so, 컴포넌트들은 서로의 렌더�
 1. JSX에 최대한 컴포넌트 로직을 표현하며
 2. "change things" 필요 시 `event handler` 사용
 3. `useEffect`는 최후의 수단
+
+## Understanding Your UI as a Tree
+
+Top-level (최상위) 컴포넌트는 렌더링 성능에 영향  
+leaf 컴포넌트는 자주 리렌더링  
+=> 이것을 이해하고 개발하기
+
+dependency tree(종속성 트리) => 빌드시 필요 code들을 묶는 데에 활용   
+`bundler`: production 용 React app 빌드시, client 에게 ship 되기 위해 필요한 자바스크립트 파일들을 묶음  
+  -> 이를 처리하는 Tool  
+so, dependency tree를 통해 어떤 module이 필요한지 결정 
