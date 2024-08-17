@@ -47,3 +47,34 @@ Naming: `handle` 로 시작 + 뒤에는 event 이름
 
 `e.stopPropagation()`: 이벤트가 상위 컴포넌트에 도달x  
 `e.preventDefault()`: 기본 브라우저 동작 방지 (ex. form(onSubmit))
+
+## State: A Component's Memory
+
+지역 변수: 렌더링 발동x  
+useState: 렌더링 시 데이터 유지(state), 렌더링 trigger
+
+```javascript
+import { useState } from "react";
+const [something, setSomething] = useState(0); // []는 array destructuring (배열 구조분해)
+```
+
+`useState` 를 호출하는 건 -> React에게 이 컴포넌트가 무언가를 기억하길 원한다고 말하는 것!
+
+🧚 컴포넌트에 여러 state 변수  
+index, showMore 과 같은 연관없는 경우 -> 여러 state 변수 o  
+but, state를 함께 자주 변경시 -> 하나로 합치기(객체 형식)
+
+🧚 State는 isolated & private  
+화면상의 특정 위치에 '지역적(local)'. state는 별도로 stored
+
+```javascript
+export default function Page() {
+  return (
+    // <Gallery /> 내부의 state는 각각 독립적. 두 곳에서 렌더링시 -> 각 복사본은 고유한 state를 가짐
+    <div className="Page">
+      <Gallery />
+      <Gallery />
+    </div>
+  );
+}
+```
