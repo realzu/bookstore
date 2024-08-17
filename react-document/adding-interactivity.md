@@ -78,3 +78,44 @@ export default function Page() {
   );
 }
 ```
+
+## Render and Commit
+
+React의 모든 화면 업데이트는 총 3단계로 이루어진다.
+
+> Trigger => Render => Commit
+
+🧚 **Trigger** a render  
+:: 손님의 주문을 주방에 전달  
+이유) 1. 컴포넌트의 initial render 2. state(컴포넌트 or 상위요소's) 업데이트시
+
+Initial render (첫 렌더링)
+대상 노드로 `createRoot` 호출 후, `render` method 호출
+
+```javascript
+import { createRoot } from "react-dom/client";
+
+const root = createRoot(document.getElementById("root"));
+root.render(<div />);
+```
+
+🧚 React **renders** your components  
+:: `Rendering` = React calling your components.  
+`init`: root component 호출 (신규 DOM 노드 생성)  
+`re-rendering`: 이후(subsequent renders)에는 렌더링이 trigger된 function component 호출 (변경된 properties 계산)  
+(이 과정은 재귀적)  
+업데이트된 컴포넌트가 다른 컴포넌트 호출 => .. => 해당 컴포넌트도 다른 컴포넌트 호출 => 화면에 표시될 컴포넌트 모두 호출할 때까지
+
+Rendering은 same inputs & same outputs  
+++ 이전 state 변경(x. 렌더링 전에 존재하는..)
+
+🧚 React **commits** changes to the DOM  
+:: 컴포넌트 렌더링 이후, 리액트는 DOM을 수정  
+`init`: `appendChild()` DOM API 통해 생성한 모든 DOM 노드를 화면에 표시  
+`re-rendering`: 렌더링하는 동산 계산된 것들을 적용해 DOM이 최신 렌더링 output과 일치하도록함
+
+리액트는 렌더링간 차이 있는 경우에만 DOM 노드 변경
+
+🧚 Browser paint  
+렌더링이 끝나고 React가 DOM을 업데이트한 후, 브라우저는 화면을 다시 그린다  
+`browser rendering` = `painting`
