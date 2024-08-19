@@ -119,3 +119,36 @@ Rendering은 same inputs & same outputs
 🧚 Browser paint  
 렌더링이 끝나고 React가 DOM을 업데이트한 후, 브라우저는 화면을 다시 그린다  
 `browser rendering` = `painting`
+
+## State as a Snapshot
+
+"Rendering takes a snapshot in time"  
+렌더링 당시의 prop, event handlers, 변수
+
+리액트가 컴포넌트를 re-rendering 할 때)  
+1. 리액트가 함수 다시 호출
+2. 함수는 새로운 JSX 스냅샷 반환
+3. 리액트는 그 스냅샷에 맞게 화면을 update
+
+```javascript
+// Setting state only changes it for the "next render"
+<button onClick={() => { // number = 0
+  setNumber(number + 1); // 0 + 1
+  setNumber(number + 1); // 0 + 1
+  setNumber(number + 1); // 0 + 1
+}}>+3</button>
+```
+
+number를 3번 연달아 set해도 결과는 ? `1`  
+`number`의 값은 1~3줄 모두 그 순간에는 "같은 값"
+
+🧚 시간 경과에 따른 state  
+user와 상호작용한 시점에 state의 snapshot을 사용하기로 schedule되었다  
+실행 시점(x) 상호작용된 시점에 고정(o)
+
+```javascript
+<button onClick={() => { // number = 0
+    setNumber(number + 5);
+    alert(number); // 0
+}}>+5</button>
+```

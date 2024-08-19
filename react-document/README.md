@@ -16,7 +16,7 @@
 - [x] Responding to Events
 - [x] State: A Component's Memory
 - [x] Render and Commit
-- [ ] State as a Snapshot
+- [x] State as a Snapshot
 - [ ] Queueing a Series of State Updates
 - [ ] Updating Objects in State
 - [ ] Updating Arrays in State
